@@ -2,12 +2,12 @@ import React from 'react'
 import chrome from "../asset/chrome.png"
 
 
-function Chrome({setcurrent,setminimize,array1}) {
+function Chrome({setcurrent,setminimize,array1,instanceid}) {
     const onclick=()=>{
         setcurrent(false);
     }
     const onclickmini=()=>{
-        setminimize([...array1,chrome]);
+        setminimize([...array1,[instanceid,chrome,"Thispc"]]);
         setcurrent(false);
     }
   return (
@@ -20,8 +20,9 @@ function Chrome({setcurrent,setminimize,array1}) {
                 onclickmini();
             }} className='text-white mr-1 hover:cursor-pointer hover:opacity-80 transition-all duration-150'><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/minimize-window.png" alt="multiply-2"/></div>
     </div>
-    <div id='boxarea' className='h-full w-full items-center justify-center flex'>
+    <div id='boxarea' className='h-full w-full items-center justify-center flex flex-col'>
             <p>Google Chrome</p>
+            <p>{instanceid}</p>
         </div>
 </div>
   )
