@@ -7,7 +7,7 @@ function Chrome({setcurrent,setminimize,array1,instanceid}) {
         setcurrent(false);
     }
     const onclickmini=()=>{
-        setminimize([...array1,[instanceid,chrome,"Thispc"]]);
+        setminimize([...array1,[instanceid,chrome,"chrome"]]);
         setcurrent(false);
     }
   return (

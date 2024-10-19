@@ -56,6 +56,7 @@ function Main() {
                     console.log("Clicked rider",imageinstance[0])
                     if (imageinstance[2]==="Thispc"){
                         setthispcinstance(imageinstance[0]);
+                        console.log("true called")
                         setthispc(true);
 
                     }

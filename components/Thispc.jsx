@@ -83,6 +83,9 @@ function Thispc({ setcurrent, setminimize, array1, instanceid }) {
       >
         <p>This PC</p>
         <p>{instanceid}</p>
+        <object data="https://www.youtube.com/" width="600" height="400">
+   
+</object>
       </div>
     </div>
   );
