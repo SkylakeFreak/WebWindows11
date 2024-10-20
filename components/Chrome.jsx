@@ -23,6 +23,12 @@ function Chrome({setcurrent,setminimize,array1,instanceid}) {
     <div id='boxarea' className='h-full w-full items-center justify-center flex flex-col'>
             <p>Google Chrome</p>
             <p>{instanceid}</p>
+            <script async src="https://cse.google.com/cse.js?cx=77e762fb50e504da0">
+</script>
+<div class="gcse-searchbox-only"></div>
+<script async src="https://cse.google.com/cse.js?cx=77e762fb50e504da0">
+</script>
+<div class="gcse-searchresults-only"></div>
         </div>
 </div>
   )
