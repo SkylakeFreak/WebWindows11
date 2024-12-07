@@ -1,5 +1,7 @@
 "use client"
 import React, { useState } from 'react';
+import { UserProvider } from '@/app/userContext';
+import Locked from './Locked';
 import Image from 'next/image';
 import img1 from '../asset/wallpaper.jpg';
 import bin from "../asset/bin.png"
@@ -32,7 +34,10 @@ function Main() {
     }
   return (
     <div className='flex relative h-full w-full'>
-        <div className='absolute h-full w-full'>
+        <UserProvider>
+        <Locked/>
+        </UserProvider>
+        {/* <div className='absolute h-full w-full'>
             {thispc1&&<div className='absolute flex items-center justify-center h-full w-full'>
                 <Thispc setcurrent={setthispc} setminimize={setarray} array1={array1} instanceid={currentthispcinstance}/>
             </div>}
@@ -68,7 +73,7 @@ function Main() {
                 </div>
             ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
