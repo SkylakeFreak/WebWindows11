@@ -1,6 +1,6 @@
 "use client"
-import React, { useState } from 'react';
 import { UserProvider } from '@/app/userContext';
+import React, { useState } from 'react';
 import Locked from './Locked';
 import Image from 'next/image';
 import img1 from '../asset/wallpaper.jpg';
@@ -21,7 +21,6 @@ function Main() {
       console.log(generateUUIDLikeString()); // Example output: '3e7b1c9d'
       
     var [array1,setarray]=useState([]);
-    console.log(array1,"check")
     const [thispc1,setthispc]=useState(false);
     const thispcclick=()=>{
         setthispcinstance(generateUUIDLikeString());
@@ -37,6 +36,7 @@ function Main() {
         <UserProvider>
         <Locked/>
         </UserProvider>
+        
         {/* <div className='absolute h-full w-full'>
             {thispc1&&<div className='absolute flex items-center justify-center h-full w-full'>
                 <Thispc setcurrent={setthispc} setminimize={setarray} array1={array1} instanceid={currentthispcinstance}/>

@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@keyframes phasein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  
+  .phasein {
+    animation: phasein 0.3s ease-in-out forwards;
+  }
+  
+
+  @keyframes phaseout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .phaseout {
+    animation: phaseout 0.5s ease-in-out forwards;
+  }
+  

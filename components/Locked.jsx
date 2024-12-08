@@ -13,7 +13,7 @@ function Locked() {
         //api calling
 
     }
-    const { register, setRegister } = useContext(UserContext);
+    const { register, setRegister,condition,setcondition } = useContext(UserContext);
   return (
     <div className='h-full w-full flex flex-col relative'>
         <Image src={img1} className="object-cover h-full w-full blur-sm"></Image>
@@ -24,7 +24,8 @@ function Locked() {
             <button className='bg-black text-white opacity-80 pl-10 pr-10 mt-10 transition-all duration-50 hover:opacity-100 focus:opacity-100 p-1'>Sign in</button>
             </form>
             <button onClick={()=>{
-                setregister(true);
+                setRegister(true);
+                setcondition(true);
             }} className='text-lg animate-pulse text-white hover:animate-none'>Dont Have Account ?</button>
             {register&&<div className='absolute'>
                 <Register/>

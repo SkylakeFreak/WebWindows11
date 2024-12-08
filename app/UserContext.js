@@ -7,10 +7,11 @@ export const UserContext = createContext();
 
 // Create the provider
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [register, setRegister] = useState(true);
+  const [condition,setcondition]=useState(true);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ register, setRegister,condition,setcondition }}>
       {children}
     </UserContext.Provider>
   );
