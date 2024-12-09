@@ -21,7 +21,9 @@ function Register() {
         </div>
         <div className='flex h-full mt-10 justify-center '>
             <h1>Create Account</h1>
-            <div className='flex'></div>
+            <div className='flex'>
+                <input type="text" />
+            </div>
 
         </div>
     </div>
