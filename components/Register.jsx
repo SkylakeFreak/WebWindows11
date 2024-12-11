@@ -8,6 +8,7 @@ function Register() {
     const { register, setRegister,condition,setcondition } = useContext(UserContext);
     const [qrcode,setqrcode]=useState(false);
     const [newidvalue,setnewidvalue]=useState(false);
+    const [exists,setexists]=useState(false);
     
     
   return (
@@ -30,10 +31,56 @@ function Register() {
                 setqrcode(false);
             }} placeholder='Enter New Email ID' className='text-center outline outline-1' type="text" />
             <div className='flex items-center justify-centerw-full'>
-                {!qrcode&&<button className={`${newidvalue ? "cursor-pointer":"hidden"}`} onClick={()=>{
+                {exists&&<h1>Email Exists Already, will close the window</h1>
+                }
+                {!qrcode&&!exists&&<button className={`${newidvalue ? "cursor-pointer":"hidden"}`} onClick={()=>{
+                    
+                   const intervalid= setInterval(() => {
+                        fetch("https://backend-gamma-ten-58.vercel.app/enrolledusers", {
+                method: "POST", // POST request to match the backend
+                headers: {
+                  "Content-Type": "application/json", // Set the content type to JSON
+                },
+              })
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                  }
+                  return response.json(); // Parse the JSON response
+                })
+                .then((data) => {
+                  console.log("Emails received:", data.emails); // Log the array of emails
+                  if (data.emails.includes(newidvalue)){
+                    setexists(true)
+                    setcondition(false);
+                    
+                    clearInterval(intervalid);
+                    setTimeout(() => {
+                        
+                        setRegister(false)
+                        
+                    }, 2000);
+                
+
+                  } 
+                  else{
                     setqrcode(true)
+                  }
+                })
+                .catch((error) => {
+                  console.error("Error fetching emails:", error.message);
+                });
+                        
+                    }, 3000);
+
+                    setTimeout(() => {
+  clearInterval(intervalid);
+  console.log("Interval cleared");
+}, 20000);
                 }}>Generate QR CODE</button>}
             {qrcode&&<QRCodeSVG value={newidvalue} />}
+            
+
 
             </div>
   

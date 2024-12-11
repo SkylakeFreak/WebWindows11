@@ -23,7 +23,7 @@ function Thispc({ setcurrent, setminimize, array1, instanceid }) {
     formdata.append("file", file);
 
     try {
-      const response = await axios.post("http://localhost:5000/upload", formdata, {
+      const response = await axios.post("https://backend-gamma-ten-58.vercel.app/upload", formdata, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -39,7 +39,7 @@ function Thispc({ setcurrent, setminimize, array1, instanceid }) {
   // Function to fetch uploaded files
   const fetchFiles = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/files"); // Fetch files from server
+      const response = await axios.get("https://backend-gamma-ten-58.vercel.app/files"); // Fetch files from server
       setFiles(response.data); // Update state with the fetched files
     } catch (error) {
       console.error("Error fetching files:", error);
@@ -93,7 +93,7 @@ function Thispc({ setcurrent, setminimize, array1, instanceid }) {
   };
 
   const openImage = (filename) => {
-    const imageUrl = `http://localhost:5000/file/${filename}`; // Construct the URL for the image
+    const imageUrl = `https://backend-gamma-ten-58.vercel.app/file/${filename}`; // Construct the URL for the image
     setSelectedImage(imageUrl); // Set the selected image URL
   };
 
